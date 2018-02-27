@@ -2,11 +2,11 @@
 
 <html lang="en">
 <head>
-  <title>Home</title>
+  <title>Contact</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/project2.css">
+  <link rel="stylesheet" href="/css/project2.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -23,8 +23,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="#">Contact</a></li>
           <li><a href="resume.html">Resume</a></li>
           <li><a href="about-me.html">About Me</a></li>
         </ul>
@@ -43,22 +43,39 @@
           <p><a href="https://www.instagram.com/alecbrumbaugh9/">Instagram</a></p>
       </div>
       <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
+        <h1 class="header">Contact Information</h1>
         <hr>
-        <div class="headshot-image">
-            <img src="../images/headshot.jpg">
-            <p>
-              Hi, I'm Alec Brumbaugh!
-              <br><br>
-              On my website you will find information about myself, links to my social media
-              accounts, my resume, projects I have worked on, and a contact form
-              if you would like to get in touch with me.
-              <br><br>
-              I will continue to update this site as I gain more experience and knowledge from
-              school, and work on new projects.
-            </p>
-        </div>
+        <section id="contact-form">
+          <p>
+            If you would like to talk, contact me! I will do my best to get in touch as soon as I can.
+          </p>
+        <form name="form" method="post" action="contact-information.php" onsubmit="return validateForm()">
+          <fieldset>
+            <legend>Personal information:</legend>
+            <?php
+                echo("<label>First Name:</label>
+                    <input type='text' name='firstname'><br>
+                    <label>Last Name:</label>
+                    <input type='text' name='lastname'><br>
+                    <label>Email:</label>
+                    <input type='email' name='email'><br>
+                    <label>Phone:</label>
+                    <input type='phone' name='phone'><br>");
+            ?>
+          </fieldset>
+          <br>
+          <fieldset>
+            <legend>Message:</legend>
+            <?php
+                echo("<label for='subject'>Subject:</label>
+                    <input type='text' name='messageSubject'><br><br>
+                    <textarea name='message' rows='10' cols='20'></textarea>");
+            ?>
+        </fieldset>
         <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        </form>
       </div>
       <div class="col-sm-2 sidenav">
       </div>
@@ -68,6 +85,8 @@
   <footer class="container-fluid text-center">
     <p>&copy; Alec Brumbaugh, 2017</p>
   </footer>
+
+  <script src="/js/project2.js"></script>
 
 </body>
 </html>
